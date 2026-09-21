@@ -1902,6 +1902,30 @@ body .btn-back-to-top {
 body .btn-fullscreen {
   bottom: 93.5px!important;
 }
+@media (max-width: 360px) {
+  .vertical-infographic {
+    --infographic-rail: 44px;
+    --infographic-center: 17px;
+    --infographic-play: 40px;
+    --infographic-ball: 28px;
+    --infographic-tail: 14px;
+  }
+
+  .vertical-infographic__text {
+    padding: 18px 14px;
+  }
+
+  .vertical-infographic__text::after {
+    margin-top: -13px;
+    border-top-width: 13px;
+    border-bottom-width: 13px;
+  }
+
+  .vertical-infographic__figure {
+    padding: 12px;
+  }
+}
+
 /* Tabelas resposta da atividade "Correção Tabela".
    Base comum + modificadores que reproduzem cada referência:
    --zebra  = preenchimento alternado por linha
