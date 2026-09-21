@@ -1902,3 +1902,84 @@ body .btn-back-to-top {
 body .btn-fullscreen {
   bottom: 93.5px!important;
 }
+/* Tabelas resposta da atividade "Correção Tabela".
+   Base comum + modificadores que reproduzem cada referência:
+   --zebra  = preenchimento alternado por linha
+   --coluna = primeira coluna preenchida
+   --bordas = divisoes horizontais abaixo de cada linha */
+.tabela-resposta-wrap {
+  margin: 8px 0 28px;
+  overflow-x: auto;
+}
+
+.tabela-resposta-wrap:focus-visible {
+  outline: 3px solid #f7c948;
+  outline-offset: 2px;
+}
+
+.tabela-resposta {
+  width: 100%;
+  min-width: 640px;
+  border: 0;
+  border-collapse: collapse;
+  background: #fff;
+  color: #212121;
+  font-size: 1.25em;
+  line-height: 32px;
+  text-align: left;
+}
+
+/* neutraliza as bordas/fundos que a plataforma aplica em <tr> (seletores com
+   :nth-child, por isso a especificidade equivalente aqui) */
+.tabela-resposta tr:nth-child(odd),
+.tabela-resposta tr:nth-child(even) {
+  border: 0;
+  background: transparent;
+}
+
+.tabela-resposta th,
+.tabela-resposta td {
+  padding: 4px 15px;
+  border: 0;
+  font-weight: 400;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tabela-resposta thead th {
+  background: #91b1e9;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+/* rotulo da linha: centralizado verticalmente na celula */
+.tabela-resposta tbody th {
+  vertical-align: middle;
+}
+
+.tabela-resposta--zebra tbody tr:nth-child(even) th,
+.tabela-resposta--zebra tbody tr:nth-child(even) td {
+  background: #d7e2f4;
+}
+
+.tabela-resposta--coluna tbody th {
+  background: #d7e2f4;
+}
+
+.tabela-resposta--bordas thead th,
+.tabela-resposta--bordas tbody th,
+.tabela-resposta--bordas tbody td {
+  border-bottom: 2px solid #03112d;
+}
+
+@media (max-width: 500px) {
+  .tabela-resposta {
+    font-size: 1em;
+    line-height: 26px;
+  }
+
+  .tabela-resposta th,
+  .tabela-resposta td {
+    padding: 4px 12px;
+  }
+}
