@@ -72,38 +72,93 @@
     O recurso também deverá se adaptar corretamente à visualização em
     dispositivos móveis, considerando as orientações gerais da atividade.
   </p>
-  <table>
-    <tbody>
-      <tr>
-        <td>
-          <h6 class="subtitleiii-vg">Conteúdo OnClick</h6>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><strong>Título- Barcelona</strong> </p>
-          <p>Texto associado -</p>
-          <p>Barcelona, na Espanha, passou por uma profunda transformação urbana a partir dos Jogos Olímpicos de 1992. Nesse contexto, o município integrou políticas de acessibilidade ao processo de renovação, impulsionado também pela mobilização de movimentos de pessoas com deficiência que reivindicavam o direito à cidade. Ao longo dos anos, essa diretriz consolidou uma visão urbana orientada pela diversidade, pelo pertencimento e pela inclusão (Maricato, 2015).</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><strong>Título- Copenhague</strong></p>
-          <p>Texto associado -</p>
-          <p>Copenhague, capital da Dinamarca, é reconhecida como uma das cidades mais acessíveis e sustentáveis da Europa. Esse destaque resulta de políticas urbanas que incorporam a inclusão como princípio estruturante, priorizando o acesso universal ao espaço público, à mobilidade e aos serviços (Gehl, 2013).</p>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><strong>Título- Curítiba</strong></p>
-          <p>Texto associado </p>
-          <p>No Brasil, a cidade de Curitiba é frequentemente destacada na literatura urbanística pela incorporação de diretrizes de acessibilidade em suas políticas de mobilidade e planejamento urbano. No sistema de transporte coletivo, estudos e documentos institucionais indicam a adoção progressiva de veículos adaptados, com dispositivos de acessibilidade, como elevadores, espaços reservados e sistemas de informação visual e sonora, resultado de políticas públicas conduzidas pela URBS (URBS, 2020 e Vasconcellos, 2014).</p>
-          <p> </p>
-          <p>Na infraestrutura urbana, é necessário maior rigor na utilização de dados. As informações anteriormente atribuídas ao IBGE (2022) não constam diretamente no Censo Demográfico, mas sim na Pesquisa de Informações Básicas Municipais (MUNIC) e em levantamentos específicos sobre características do entorno dos domicílios, como a presença de calçadas, iluminação e pavimentação. Esses dados podem ser acessados por meio da plataforma SIDRA ou das publicações temáticas do IBGE. Assim, recomenda-se reformular a afirmação de forma mais cautelosa, reconhecendo que, embora haja avanços na infraestrutura urbana, persistem desafios relacionados à continuidade das calçadas e à adequação às normas de acessibilidade (IBGE, 2020; Maricato, 2015).</p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <section class="onclick-resource" aria-label="Cidades acessíveis">
+    <h6 class="subtitleiii-vg">Conteúdo OnClick</h6>
+    <article class="onclick-card">
+      <button class="onclick-card__trigger onclick-card__face" type="button"
+        aria-expanded="false" aria-controls="onclick-barcelona">
+        <span class="onclick-card__title">Barcelona</span>
+      </button>
+      <span class="onclick-card__hinge" aria-hidden="true"></span>
+      <div class="onclick-card__reveal">
+        <div class="onclick-card__panel" id="onclick-barcelona">
+          <p>
+            Barcelona, na Espanha, passou por uma profunda transformação urbana a
+            partir dos Jogos Olímpicos de 1992. Nesse contexto, o município
+            integrou políticas de acessibilidade ao processo de renovação,
+            impulsionado também pela mobilização de movimentos de pessoas com
+            deficiência que reivindicavam o direito à cidade. Ao longo dos anos,
+            essa diretriz consolidou uma visão urbana orientada pela diversidade,
+            pelo pertencimento e pela inclusão (Maricato, 2015).
+          </p>
+        </div>
+      </div>
+      <button class="onclick-card__trigger onclick-card__tab" type="button"
+        aria-expanded="false" aria-controls="onclick-barcelona" aria-label="Abrir conteúdo de Barcelona">
+        <span class="onclick-card__chevron" aria-hidden="true"></span>
+      </button>
+    </article>
+    <article class="onclick-card">
+      <button class="onclick-card__trigger onclick-card__face" type="button"
+        aria-expanded="false" aria-controls="onclick-copenhague">
+        <span class="onclick-card__title">Copenhague</span>
+      </button>
+      <span class="onclick-card__hinge" aria-hidden="true"></span>
+      <div class="onclick-card__reveal">
+        <div class="onclick-card__panel" id="onclick-copenhague">
+          <p>
+            Copenhague, capital da Dinamarca, é reconhecida como uma das cidades
+            mais acessíveis e sustentáveis da Europa. Esse destaque resulta de
+            políticas urbanas que incorporam a inclusão como princípio
+            estruturante, priorizando o acesso universal ao espaço público, à
+            mobilidade e aos serviços (Gehl, 2013).
+          </p>
+        </div>
+      </div>
+      <button class="onclick-card__trigger onclick-card__tab" type="button"
+        aria-expanded="false" aria-controls="onclick-copenhague" aria-label="Abrir conteúdo de Copenhague">
+        <span class="onclick-card__chevron" aria-hidden="true"></span>
+      </button>
+    </article>
+    <article class="onclick-card">
+      <button class="onclick-card__trigger onclick-card__face" type="button"
+        aria-expanded="false" aria-controls="onclick-curitiba">
+        <span class="onclick-card__title">Curitiba</span>
+      </button>
+      <span class="onclick-card__hinge" aria-hidden="true"></span>
+      <div class="onclick-card__reveal">
+        <div class="onclick-card__panel" id="onclick-curitiba">
+          <p>
+            No Brasil, a cidade de Curitiba é frequentemente destacada na
+            literatura urbanística pela incorporação de diretrizes de
+            acessibilidade em suas políticas de mobilidade e planejamento urbano.
+            No sistema de transporte coletivo, estudos e documentos institucionais
+            indicam a adoção progressiva de veículos adaptados, com dispositivos
+            de acessibilidade, como elevadores, espaços reservados e sistemas de
+            informação visual e sonora, resultado de políticas públicas conduzidas
+            pela URBS (URBS, 2020 e Vasconcellos, 2014).
+          </p>
+          <p>
+            Na infraestrutura urbana, é necessário maior rigor na utilização de
+            dados. As informações anteriormente atribuídas ao IBGE (2022) não
+            constam diretamente no Censo Demográfico, mas sim na Pesquisa de
+            Informações Básicas Municipais (MUNIC) e em levantamentos específicos
+            sobre características do entorno dos domicílios, como a presença de
+            calçadas, iluminação e pavimentação. Esses dados podem ser acessados
+            por meio da plataforma SIDRA ou das publicações temáticas do IBGE.
+            Assim, recomenda-se reformular a afirmação de forma mais cautelosa,
+            reconhecendo que, embora haja avanços na infraestrutura urbana,
+            persistem desafios relacionados à continuidade das calçadas e à
+            adequação às normas de acessibilidade (IBGE, 2020; Maricato, 2015).
+          </p>
+        </div>
+      </div>
+      <button class="onclick-card__trigger onclick-card__tab" type="button"
+        aria-expanded="false" aria-controls="onclick-curitiba" aria-label="Abrir conteúdo de Curitiba">
+        <span class="onclick-card__chevron" aria-hidden="true"></span>
+      </button>
+    </article>
+  </section>
   <div class="box-transition box-right">
     <div class="img">
       <img src="../images/dad2a03fb07e0e7b181af8cd0ad68f9.png" alt="" />

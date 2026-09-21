@@ -16,7 +16,6 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     width: 80%!important;
   }
 }
-
 /*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
 .figura-content {
   display: inline-grid!important;
@@ -35,6 +34,232 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
 .figura-content::-webkit-scrollbar-thumb {
   background: #A8A8A8;
   border-radius: 3.5px;
+}
+
+/* Recurso 1 - OnClick (layout do Figma):
+   face azul fixa + dobradica clara + painel branco que abre para a direita
+   (verso escuro visivel na dobra) + aba lateral com chevron.
+   No mobile o conjunto empilha e o painel abre para baixo. */
+.onclick-resource {
+  --onclick-blue: #1A4B9F;
+  --onclick-hinge: #89A8E8;
+  --onclick-tab: #91B1E9;
+  --onclick-fold: #03112D;
+  --onclick-radius: 16px;
+  --onclick-tab-size: 27px;
+  --onclick-hinge-size: 4px;
+
+  max-width: 1045px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.onclick-resource .subtitleiii-vg {
+  margin-bottom: 18px;
+}
+
+.onclick-card {
+  display: flex;
+  align-items: stretch;
+  margin: 0 0 26px;
+}
+
+.onclick-card:last-child {
+  margin-bottom: 0;
+}
+
+/* face azul: e o proprio gatilho, ocupa metade da largura como no layout */
+.onclick-card__face {
+  display: flex;
+  flex: 0 0 48%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 240px;
+  padding: 32px;
+  border: 0;
+  border-radius: var(--onclick-radius);
+  background: var(--onclick-blue);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+
+.onclick-card__title {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+/* dobradica: no fechado separa face e aba; no aberto, face e painel */
+.onclick-card__hinge {
+  flex: 0 0 var(--onclick-hinge-size);
+  background: var(--onclick-hinge);
+}
+
+/* area revelada: fica fora do fluxo enquanto fechada, para nao reservar
+   espaco nem influenciar a altura do card */
+.onclick-card__reveal {
+  display: none;
+  flex: 0 0 48%;
+  overflow: hidden;
+  background: var(--onclick-fold);
+  perspective: 1600px;
+}
+
+.onclick-card.is-open .onclick-card__reveal,
+.onclick-card.is-closing .onclick-card__reveal {
+  display: block;
+}
+
+/* painel branco: gira sobre a dobradica, como a aba de um envelope,
+   deixando o verso escuro a mostra durante o movimento */
+.onclick-card__panel {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100%;
+  padding: 29px 27px;
+  background: #fff;
+  color: #212121;
+  font-size: 20px;
+  line-height: 24px;
+  transform-origin: left center;
+}
+
+.onclick-card.is-open .onclick-card__panel {
+  animation: onclick-envelope-open 520ms ease both;
+}
+
+.onclick-card.is-closing .onclick-card__panel {
+  animation: onclick-envelope-open 420ms ease reverse both;
+}
+
+@keyframes onclick-envelope-open {
+  from { transform: rotateY(-92deg); }
+  to { transform: rotateY(0deg); }
+}
+
+@keyframes onclick-envelope-open-mobile {
+  from { transform: rotateX(92deg); }
+  to { transform: rotateX(0deg); }
+}
+
+.onclick-card__panel p {
+  margin: 0 0 16px;
+}
+
+.onclick-card__panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* aba lateral: acompanha a extremidade aberta e inverte o chevron */
+.onclick-card__tab {
+  display: flex;
+  flex: 0 0 var(--onclick-tab-size);
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 0 var(--onclick-radius) var(--onclick-radius) 0;
+  background: var(--onclick-tab);
+  cursor: pointer;
+}
+
+.onclick-card__chevron {
+  width: 12px;
+  height: 12px;
+  border-top: 4px solid #212121;
+  border-right: 4px solid #212121;
+  transform: rotate(45deg) translate(-2px, 2px);
+  transition: transform 320ms ease;
+}
+
+.onclick-card.is-open .onclick-card__chevron {
+  transform: rotate(-135deg) translate(-2px, 2px);
+}
+
+.onclick-card__face:focus-visible,
+.onclick-card__tab:focus-visible {
+  outline: 3px solid #f7c948;
+  outline-offset: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .onclick-card__panel {
+    animation-duration: 1ms;
+  }
+
+  .onclick-card__chevron {
+    transition-duration: 1ms;
+  }
+}
+
+@media (max-width: 768px) {
+  .onclick-resource {
+    --onclick-radius: 12px;
+    --onclick-tab-size: 22px;
+    --onclick-hinge-size: 3px;
+  }
+
+  /* empilhado: o painel abre para baixo e a aba vai para a base */
+  .onclick-card {
+    flex-direction: column;
+  }
+
+  .onclick-card__face {
+    flex: 0 0 auto;
+    min-height: 180px;
+    padding: 24px;
+  }
+
+  .onclick-card__title {
+    font-size: 22px;
+  }
+
+  .onclick-card__reveal {
+    flex: 0 0 auto;
+  }
+
+  .onclick-card__panel {
+    min-height: 0;
+    padding: 20px 18px;
+    font-size: 16px;
+    line-height: 19px;
+    transform-origin: center top;
+  }
+
+  .onclick-card.is-open .onclick-card__panel {
+    animation-name: onclick-envelope-open-mobile;
+  }
+
+  .onclick-card.is-closing .onclick-card__panel {
+    animation-name: onclick-envelope-open-mobile;
+  }
+
+  .onclick-card__tab {
+    position: relative;
+    flex: 0 0 var(--onclick-tab-size);
+    border-radius: 0 0 var(--onclick-radius) var(--onclick-radius);
+  }
+
+  /* a aba mantem os 22px do layout, mas a area tocavel passa de 24px */
+  .onclick-card__tab::after {
+    position: absolute;
+    top: -3px;
+    right: 0;
+    bottom: -3px;
+    left: 0;
+    content: "";
+  }
+
+  .onclick-card__chevron {
+    transform: rotate(135deg) translate(-2px, 2px);
+  }
+
+  .onclick-card.is-open .onclick-card__chevron {
+    transform: rotate(-45deg) translate(-2px, 2px);
+  }
 }
 
 /*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
