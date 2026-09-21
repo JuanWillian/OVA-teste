@@ -1,0 +1,1351 @@
+/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript+basic+c+csharp+cpp+git+java+latex+markup-templating+mongodb+perl+php+plsql+powershell+jsx+tsx+ruby+sas+sass+scss+scheme+sql+typescript&plugins=line-highlight+line-numbers+keep-markup+toolbar+copy-to-clipboard+download-button+match-braces */
+
+
+/*O recurso tooltip, quando o texto selecionavel está em italico, acaba deixando todo o conteúdo interno em italico também, por isso foi forçado o estilo normal.*/
+.tooltip-content p {
+  font-style: normal!important;
+}
+
+/*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
+@media (max-width: 500px) {
+  .figura-content {
+    overflow: hidden;
+    overflow-x: scroll;
+    display: inline-grid!important;
+    width: 80%!important;
+  }
+}
+
+/*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
+.figura-content {
+  display: inline-grid!important;
+  width: 100%;
+  justify-items: center;
+}
+
+/*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
+.figura-content::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
+.figura-content::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
+@media (max-width: 500px) {
+  .container .row .col12 .figura-content img {
+    width: 600px!important;
+    height: auto!important;
+    max-width: none!important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/*Ajuste no tamanho da fonte de caracteres que não estão na formatação do equation. Como esses caracteres estavam sendo afetados também por negrito e italico, foram "setados" como normal para evitar erros de formatação futuros*/
+g text {
+  font-size: 0.7em;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*Remoção da palavra atenção do recurso Atenção, pois já tem uma imagem com a palavra.*/
+.U-ATENCAO h5 {
+  font-size: 0!important;
+}
+
+/*Ajuste do tamanho da caixa de Dica, para que o tamanho seja acompanhado somente do texto e não com uma altura minima.*/
+.print .box.dica .content, .stage .box.dica .content {
+  min-height: 0!important;
+}
+
+/*O mathjax estava ficando um pouco cortado e com alguns problemas no scroll, o contents ajustou isso.*/
+mjx-container[jax="CHTML"] {
+  display: contents;
+}
+
+/*Algumas listagens estavam ficando com tamanho de fontes maiores, principalmente em recursos.*/
+li p {
+  font-size: 1em!important;
+}
+
+/*As imagens estavam ficando muito grandes, mesmo sendo colocado o valor, com o revert é resgatado o valor anterior que foi colocado ao invés do valor auto.*/
+p img {
+  width: revert-layer!important;
+}
+
+/*A maioria das fórmulas passava o tamanho de tela no mobile, esse css ajustou, com um scroll, as fórmulas feitas com equation.*/
+p:has(svg) {
+  overflow: scroll;
+}
+
+/*A maioria das fórmulas passava o tamanho de tela no mobile, esse css ajustou, com um scroll, as fórmulas feitas com equation.*/
+p:has(svg)::-webkit-scrollbar {
+    display: block!important;
+    width: 8px!important;
+    height: 8px!important;
+}
+
+/*A maioria das fórmulas passava o tamanho de tela no mobile, esse css ajustou, com um scroll, as fórmulas feitas com equation.*/
+p:has(svg)::-webkit-scrollbar-thumb {
+    background: #A8A8A8!important;
+    border-radius: 3.5px!important;
+}
+
+/*A maioria das fórmulas passava o tamanho de tela no mobile, esse css ajustou, com um scroll, as fórmulas feitas com equation.*/
+p:has(svg)::-webkit-scrollbar-thumb:hover {
+	background: #787878!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.container-codigo::-webkit-scrollbar-track {
+	background: #A8A8A8!important;
+    border-radius: 3.5px!important;
+}
+
+/*Cetralização do botão do Saiba Mais. O botão também estava ficando com uma margem lateral de ponta a ponta do recurso, por isso a margem foi zerada.*/
+.play .print .saiba-mais-box .saiba-mais-btn, .play .stage .saiba-mais-box .saiba-mais-btn {
+  place-self: center!important;
+  margin: 0!important;
+}
+
+/*Ajuste na margem do Saiba Mais na versão mobile.*/
+@media (max-width: 500px) {
+  .play .print .saiba-mais-box, .play .stage .saiba-mais-box {
+    margin: 18px 28px 0!important;
+  }
+}
+
+/*Ajuste no scroll das fórmulas que estavam no enunciado. Algumas vezes era gerado um scroll desnecessário quando a fórmula estava no fim da linha de texto.*/
+enunciado p:has(mjx-container) {
+	overflow: visible!important;
+}
+
+/*Scroll nas fórmulas MathJax nas opções de escolha do mobile.*/
+@media (max-width: 500px) {
+  .escolha .txt:has(mjx-container) {
+    overflow: scroll!important;
+    width: 100%;
+  }
+}
+
+/*Na versão desktop alguns scrolls estavam sendo "forçados" no MathJax em parágrafos, então as opções foram deixadas visíveis.*/
+.escolha p:has(mjx-container) {
+	overflow: visible!important;
+}
+
+/*Recurso pessoal para arrastar imagens e frames.*/
+.dragscroll {
+  cursor : -webkit-grab;
+  cursor : -moz-grab;
+  cursor : -o-grab;
+  cursor : grab;
+}
+
+/*Recurso pessoal para arrastar imagens e frames.*/
+.dragscroll:active {
+  cursor : -webkit-grabbing;
+  cursor : -moz-grabbing;
+  cursor : -o-grabbing;
+  cursor : grabbing;
+}
+
+/*Espaçamento no desktop estava ficando muito "junto", ajustado junto ao designer o tamanho correto.*/
+.print fillin .pergunta-container frase, .stage fillin .pergunta-container frase {
+  line-height: 32px!important;
+}
+
+/*Ajuste em alguns cortes do MathJax quando estavam em parágrafo.*/
+p mjx-math {
+  padding: 4px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+td .container-codigo {
+	max-width: 648px!important;
+	margin: 0!important;
+	place-self: center;
+}  
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.container-codigo {
+	max-width: 1045px!important;
+	margin: 20px auto!important;
+	width: 80%!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre::-webkit-scrollbar {
+    display: block!important;
+    width: 8px!important;
+    height: 8px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre::-webkit-scrollbar-thumb {
+    background: #A8A8A8!important;
+    border-radius: 3.5px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre::-webkit-scrollbar-thumb:hover {
+	background: #787878!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.container-codigo::-webkit-scrollbar-track {
+	background: #A8A8A8!important;
+    border-radius: 3.5px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+code[class*="language-"] mark, pre[class*="language-"] mark {
+    display: inline-block!important;
+    color: inherit!important;
+    background: none!important;
+    border: 1px solid #000!important;
+    box-shadow: 0 0 2px #fff!important;
+    padding: 1px!important;
+    background: rgba(0, 0, 0, 0.2)!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+mark {
+    outline: .4em solid red!important;
+    outline-offset: .4em!important;
+    background-color: transparent!important;
+    display: inline-block!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+code[class*="language-"],
+pre[class*="language-"] {
+	color: #ccc!important;
+	background: none!important;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace!important;
+	font-size: 21px!important;
+	text-align: left!important;
+	white-space: pre!important;
+	word-spacing: normal!important;
+	word-break: normal!important;
+	word-wrap: normal!important;
+	line-height: 1.5!important;
+
+	-moz-tab-size: 4!important;
+	-o-tab-size: 4!important;
+	tab-size: 4!important;
+
+	-webkit-hyphens: none!important;
+	-moz-hyphens: none!important;
+	-ms-hyphens: none!important;
+	hyphens: none!important;
+
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+@media screen and (max-width: 500px) {
+	code[class*="language-"],
+	pre[class*="language-"] { 
+	  font-size: 16px!important;
+	 }
+  }
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[class*="language-"] {
+	padding: 1em!important;
+	margin: .5em 0!important;
+	border-radius: 16px!important;
+	overflow: auto!important;
+	border-top: solid #1e1e1e 19px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #1e1e1e!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+:not(pre) > code[class*="language-"] {
+	padding: .1em!important;
+	border-radius: .3em!important;
+	white-space: normal!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.punctuation {
+	color: #ccc!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	color: #e2777a!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.function-name {
+	color: #6196cc!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.boolean,
+.token.number,
+.token.function {
+	color: #f08d49!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	color: #cc99cd!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	color: #7ec699!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.important,
+.token.bold {
+	font-weight: bold!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.italic {
+	font-style: italic!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.entity {
+	cursor: help!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.inserted {
+	color: green!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[data-line] {
+	position: relative!important;
+	padding: 1em 0 1em 3em!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+body .line-highlight {
+    position: absolute!important;
+    left: 0!important;
+    right: 0!important;
+    margin-top: 1em!important;
+    background: hsla(24, 20%, 50%,.08)!important;
+    background: linear-gradient(to right, hsl(24deg 20% 50% / 21%) 70%, hsla(24, 20%, 50%, 0))!important;
+    pointer-events: none!important;
+    line-height: inherit!important;
+    white-space: pre!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+@media print {
+	.line-highlight {
+		-webkit-print-color-adjust: exact!important;
+		color-adjust: exact!important;
+	}
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-highlight:before,
+.line-highlight[data-end]:after {
+  content: attr(data-start)!important;
+  position: absolute!important;
+  top: .4em!important;
+  left: .6em!important;
+  min-width: 1em!important;
+  padding: 0 .5em!important;
+  background-color: hsla(24, 20%, 50%,.4)!important;
+  color: hsl(24, 20%, 95%)!important;
+  font: bold 65%/1.5 sans-serif!important;
+  text-align: center!important;
+  vertical-align: .3em!important;
+  border-radius: 999px!important;
+  text-shadow: none!important;
+  box-shadow: 0 1px white!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-highlight[data-end]:after {
+  content: attr(data-end)!important;
+  top: auto!important;
+  bottom: .4em!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+	content: none!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[id].linkable-line-numbers span.line-numbers-rows {
+	pointer-events: all!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
+	cursor: pointer!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: rgba(128, 128, 128, .2)!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[class*="language-"].line-numbers {
+	position: relative!important;
+	padding-left: 3.8em!important;
+	counter-reset: linenumber!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+pre[class*="language-"].line-numbers > code {
+	position: relative!important;
+	white-space: inherit!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-numbers .line-numbers-rows {
+	position: absolute!important;
+	pointer-events: none!important;
+	top: 0!important;
+	font-size: 100%!important;
+	left: -3.8em!important;
+	width: 3em!important;
+	letter-spacing: -1px!important;
+	border-right: 1px solid #999!important;
+
+	-webkit-user-select: none!important;
+	-moz-user-select: none!important;
+	-ms-user-select: none!important;
+	user-select: none!important;
+
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-numbers-rows > span {
+  display: block!important;
+  counter-increment: linenumber!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.line-numbers-rows > span:before {
+  content: counter(linenumber)!important;
+  color: #999!important;
+  display: block!important;
+  padding-right: 0.8em!important;
+  text-align: right!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar {
+position: relative!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar {
+	position: absolute!important;
+	z-index: 10!important;
+	top: .3em!important;
+	right: .2em!important;
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar:hover > .toolbar {
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar:focus-within > .toolbar {
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar > .toolbar-item {
+	display: inline-block!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar > .toolbar-item > a {
+	cursor: pointer!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar > .toolbar-item > button {
+	background: none!important;
+	border: 0!important;
+	color: inherit!important;
+	font: inherit!important;
+	line-height: normal!important;
+	overflow: visible!important;
+	padding: 0!important;
+	-webkit-user-select: none!important; 
+	-moz-user-select: none!important;
+	-ms-user-select: none!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button,
+div.code-toolbar > .toolbar > .toolbar-item > span {
+	color: #bbb!important;
+	font-size: 1em!important;
+	display: block!important;
+	margin-left: .6em!important;
+	padding: 0 .6em 0.3em!important;
+	background: #f5f2f0!important;
+	background: rgba(224, 224, 224, 0.2)!important;
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2)!important;
+	border-radius: .5em!important;
+	text-decoration: none!important;
+	cursor: pointer!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+	color: white!important;
+	text-decoration: none!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.token.punctuation.brace-hover,
+.token.punctuation.brace-selected {
+	outline: solid 1px!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.rainbow-braces .token.punctuation.brace-level-1,
+.rainbow-braces .token.punctuation.brace-level-5,
+.rainbow-braces .token.punctuation.brace-level-9 {
+	color: #E50!important;
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.rainbow-braces .token.punctuation.brace-level-2,
+.rainbow-braces .token.punctuation.brace-level-6,
+.rainbow-braces .token.punctuation.brace-level-10 {
+	color: #0B3!important;
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.rainbow-braces .token.punctuation.brace-level-3,
+.rainbow-braces .token.punctuation.brace-level-7,
+.rainbow-braces .token.punctuation.brace-level-11 {
+	color: #26F!important;
+	opacity: 1!important;
+}
+
+/*Recurso pessoal de código para substituir o do Realize.*/
+.rainbow-braces .token.punctuation.brace-level-4,
+.rainbow-braces .token.punctuation.brace-level-8,
+.rainbow-braces .token.punctuation.brace-level-12 {
+	color: #E0E!important;
+	opacity: 1!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp .container-codigo {
+  width: 100%!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp {
+  padding: 0px!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp conteudo {
+  border: none!important;
+  background: #fafafa!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp topo {
+  cursor: auto!important;
+  background-color: #FAFAFA!important;
+  display: block!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp .txt {
+  justify-items: center!important;
+}
+
+/*Recurso pessoal para criar um campo de respostas com código.*/
+.sanfona-resp topo titulo {
+    border-bottom: 1px dotted #002c3b; 
+    color: #002c3b!important;
+    text-align: left;
+    width: fit-content!important;
+    font-weight: 400!important;
+}
+
+/*Quebra de linha por letra em links, em alguns casos os links estavam passando o tamanho de tela, como são links, não há problema na quebra.*/
+a {
+  word-break: break-word!important;
+}
+
+/*O mesmo caso do anterior, porém antes de alguma atualização, mantido pra caso haja alguma alteração mas serve para remover a repetição da palavra atenção do recurso Atenção que já vem na imagem.*/
+.U-ATENCAO:has(h5) {
+  font-size: 0px!important;
+}
+
+/*Fontes em tabelas quando vinham em formato de parágrafo acabavam ficando bem maiores que as outras.*/
+.print .slider .slide tr td p, .stage .slider .slide tr td p {
+  font-size: 1em!important;
+}
+
+/*Ajuste no espaçamento da navegação do recurso Slider, o ideal seria uma reformulação da estrutura.*/
+.print .slider nav ul, .stage .slider nav ul {
+  padding: 0px;
+}
+
+/*Ajuste no espaçamento da navegação do recurso Slider, o ideal seria uma reformulação da estrutura.*/
+.print .slider nav ul, .stage .slider nav ul {
+  margin-left: 5px!important;
+}
+
+/*Imagens estavam ficando cortadas.*/
+.print .cover .cover-container .cover-content>img, .stage .cover .cover-container .cover-content>img {
+  object-fit: contain!important;
+}
+
+/*O recurso Sanfona esta.*/
+.container:has(.sanfona-wrapper) {
+  margin: 0px auto!important;
+}
+
+/*Ajuste na posição dos números do recurso Código do Realize, não está sendo mais utilizado, mas mantido pra situações futuras.*/
+.play .print .bloco-texto-codigo pre code p:before, .play .stage .bloco-texto-codigo pre code p:before {
+  left: 34px!important;
+}
+
+/*Imagem do recurso Exemplo estava ficando a esquerda, foi centralizada.*/
+.print .box.exemplo .image, .stage .box.exemplo .image {
+  align-self: center!important;
+}
+
+/*Botão de tela cheia estava atrapalhando a versão mobile e não se fazia tão necessário, por isso foi removido na versão mobile. Além disso alguns ajustes nos outros botões*/
+@media (max-width: 500px) {
+  body .btn-fullscreen {
+    display: none!important;
+  }
+
+  body .btn-back-to-top, body .btn-fullscreen, body .btn-report {
+    margin: -11px!important;
+  }
+
+  .print .tooltip .modal-content .text-content, .stage .tooltip .modal-content .text-content{
+    max-height: 65vh!important;
+    top: -12px;
+  }
+}
+
+/*Margem do recurso Destaque ajustado junto a designer.*/
+.print .destaque, .stage .destaque {
+  margin: 25px 20px 0px 28px!important;
+}
+
+/*Ajuste do recurso Código, não utilizado mais.*/
+.bloco-texto-codigo {
+  position: relative;
+}
+
+/*Ajuste no limite do recurso Flipper para que tenha no máximo 4 cards por linha e não ultrapasse o limite da área de conteúdo geral.*/
+.stage .flipper-list {
+  max-width: 1098px;
+  margin: 0px auto;
+}
+
+/*Scroll para fórmulas MathJax.*/
+@media screen and (max-width: 500px) {
+  p:has(mjx-container) {
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+}
+
+/*Foi adicionado um scroll para algumas ocorrências no tooltip, para evitar "forçar" o scroll foi deixado o parágrafo como visível.*/
+p:has(.tooltip) {
+  overflow: visible;
+}
+
+/*Estilo da barra de scroll para fórmulas em MathJax que ultrapassem a área de conteúdo em texto.*/
+p:has(mjx-container)::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Estilo da barra de scroll para fórmulas em MathJax que ultrapassem a área de conteúdo em texto.*/
+p:has(mjx-container)::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+
+/*Barra de scroll para fórmulas em MathJax que ultrapassem a área de conteúdo.*/
+mjx-container {
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+/*Barra de scroll para fórmulas em MathJax que ultrapassem a área de conteúdo.*/
+mjx-container::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Barra de scroll para fórmulas em MathJax que ultrapassem a área de conteúdo.*/
+mjx-container::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Ajuste na área do recurso Anexo, para melhor visibilidade.*/
+.anexo {
+  width: 100%;
+}
+
+/*Ajuste para o rodapé, fonte sempre em caixa alta e também ajustada a altura.*/
+.play .print .after .footer, .play .stage .after .footer {
+  height: auto!important;
+  font-variant: all-petite-caps;
+}
+
+/*Ajuste de peso e tamanho da fonte no rodapé para o mobile.*/
+@media (max-width: 500px) {
+  .print .after .footer p,
+  .stage .after .footer p {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+  }
+}
+
+/*Ajuste na barra lateral do recurso Destaque, ela acaba cobrindo o texto logo acima dela.*/
+.print .destaque:before, .stage .destaque:before {
+  top: -1%!important;
+  height: 102%!important;
+}
+
+/*Ajuste na imagem que antecede o texto de título do recurso Sanfona, ela tem mudado o tamanho de acordo com o tamanho do texto do conteúdo do título.*/
+.print .sanfona-wrapper sanfona .sanfona-container .sanfona-content topo .txt titulo .img-trigger, .stage .sanfona-wrapper sanfona .sanfona-container .sanfona-content topo .txt titulo .img-trigger {
+  min-width: 32px!important;
+}
+
+/*Scroll para ajustar recurso Código no Realize, não utilizado mais, mas mantido para mudanças futuras.*/
+@media (max-width: 500px) {
+  pre {
+      overflow: hidden;
+      overflow-x: scroll;
+    }
+  }
+
+/*Scroll para ajustar recurso Código no Realize, não utilizado mais, mas mantido para mudanças futuras.*/
+pre::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Scroll para ajustar recurso Código no Realize, não utilizado mais, mas mantido para mudanças futuras.*/
+pre::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Scroll para ajustar recurso Código no Realize, não utilizado mais, mas mantido para mudanças futuras.*/
+.print .tooltip .modal-content .text-content,
+.stage .tooltip .modal-content .text-content {
+  max-width: 1025px!important;
+  width: 80%!important;
+}
+
+/*Por conta do conteúdo, como fórmulas e imagens, a parte de resultado acabava sendo extendida além do espaço do conteúdo, por isso foi inserido um scroll.*/
+@media (max-width: 500px) {
+  resultado {
+    overflow: hidden;
+    overflow-x: scroll;
+    display: inline-grid!important;
+    width: 100%!important;
+  }
+}
+
+/*Ajuste no recurso para o scroll.*/
+resultado {
+  display: inline-grid!important;
+  width: 100%;
+}
+
+/*Estilo para o scroll.*/
+resultado::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Estilo para o scroll.*/
+resultado::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Ajuste na posição do icone de libras.*/
+.vlibras {
+  right: 15px!important;
+}
+
+/*Ajuste na posição do icone de libras.*/
+@media (max-width: 500px) {
+  .print .box-image-text, .stage .box-image-text {
+    flex-direction: column!important;
+  }
+  .print .box-image-text, .stage .box-image-text {
+    gap: 10px!important;
+  }
+  .print .box-image-text .content, .print .box-image-text .img, .stage .box-image-text .content, .stage .box-image-text .img {
+    width: 100%!important;
+  }
+  .print .box-image-text .content, .stage .box-image-text .content {
+    max-height: none!important;
+  }
+}
+
+/*Removido a altura máxima do recurso Imagem com Texto.*/
+.print .box-image-text .content, .stage .box-image-text .content {
+  max-height: none!important;
+}
+
+/*Ajuste no tamanho da fonte do resultado no recurso Quiz, algumas situações, como fórmulas e listagens, acabavam tendo seu tamanho alterado.*/
+.print quiz .pergunta-container resultado p, .stage quiz .pergunta-container resultado p {
+  font-size: 1.25em!important;
+}
+
+/*Ajuste de margem do recurso Figura junto a designer.*/
+@media (max-width: 500px) {
+  .figura-content {
+    margin: 0 28px 0 28px;
+  }
+}
+
+/*Scroll no recurso Tooltip.*/
+.print .tooltip .tooltip-content, .stage .tooltip .tooltip-content::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Scroll no recurso Tooltip.*/
+.print .tooltip .tooltip-content, .stage .tooltip .tooltip-content::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Classe pessoal para inserir scroll com estilo predefinido.*/
+@media (max-width: 500px) {
+  .pai-scroll {
+    overflow: hidden;
+    overflow-x: scroll;
+    display: inline-grid!important;
+    width: 80%!important;
+  }
+}
+
+/*Classe pessoal para inserir scroll com estilo predefinido.*/
+.pai-scroll {
+  display: inline-grid!important;
+  width: 100%;
+  justify-items: center;
+}
+
+/*Classe pessoal para inserir scroll com estilo predefinido.*/
+.pai-scroll::-webkit-scrollbar {
+  display: block !important;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+/*Classe pessoal para inserir scroll com estilo predefinido.*/
+.pai-scroll::-webkit-scrollbar-thumb {
+  background: #A8A8A8;
+  border-radius: 3.5px;
+}
+
+/*Classe pessoal para inserir scroll com estilo predefinido.*/
+@media (max-width: 500px) {
+  .container .row .col12 .pai-scroll .imgscroll {
+    width: 600px!important;
+    height: auto!important;
+    max-width: none!important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/*Classes pessoais para ajustar texto para mobile e desktop de alguns iframes e também ajuste no tamanho do iframe em ambas versões.*/
+@media (max-width: 500px) {
+  .text1 {
+    display: none!important;
+  }
+  .text2 {
+    display: block!important;
+  }
+  .iframetam {
+    height: 916px!important;
+  }
+}
+
+/*Classes pessoais para ajustar texto para mobile e desktop de alguns iframes.*/
+@media (min-width: 501px) {
+  .text1 {
+    display: block!important;
+  }
+  .text2 {
+    display: none!important;
+  }
+}
+
+/*Classes pessoais para ajustar tamanho para mobile e desktop de alguns iframes.*/
+@media screen and (max-width: 500px) {
+  .iframetam1 { 
+    height: 548px;
+   }
+  .iframetam2 { 
+    height: 915px;
+   }
+}
+
+/*Classes pessoais para ajustar tamanho para mobile e desktop de alguns iframes.*/
+@media screen and (min-width: 501px) and (max-width: 1044px) {
+  .iframetam1 { 
+    height: 444px;
+   }
+  .iframetam2 { 
+    height: 412px;
+   }
+}
+
+/*Classes pessoais para ajustar tamanho para mobile e desktop de alguns iframes.*/
+@media screen and (min-width: 1045px) {
+  .iframetam1 { 
+    height: 548px;
+   }
+   .iframetam2 { 
+    height: 548px;
+    }
+}
+
+/*Classes pessoais para ajustar tamanho para mobile e desktop de alguns iframes.*/
+@media (max-width: 500px) {
+  .iframetam01 {
+    height: 3836px!important;
+  }
+  .iframetam02 {
+    height: 3819px!important;
+  }
+}
+
+/*Remoção da seta do canto direito do recurso Accordion, para ser substituida.*/
+.print .sanfona-wrapper sanfona.sanfona-accordion .sanfona-container .sanfona-content topo svg, .stage .sanfona-wrapper sanfona.sanfona-accordion .sanfona-container .sanfona-content topo svg {
+  display: none;
+}
+
+/*Posição e cor do novo icone para substituir no recurso Accordion selecionado.*/
+.stage .sanfona-wrapper sanfona.sanfona-accordion .sanfona-container .sanfona-content topo::after {
+  transform: rotate(-90deg);
+  color: #fdfdfd;
+}
+
+/*Posição e cor do novo icone para substituir no recurso Accordion não selecionado.*/
+.stage .sanfona-wrapper sanfona.sanfona-accordion .sanfona-container.trigger .sanfona-content topo::after {
+  transform: rotate(0deg);
+  color: #fdfdfd;
+}
+
+/*Estilo do novo icone para substituir no recurso Accordion.*/
+topo::after {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  content: "";
+  background-image: url('https://cimatecead.senaicimatec.com.br/projects/img/accordion.svg');
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform .2s ease-in-out;
+}
+
+/*Ajuste no tamanho da imagem quando inserida na frente do recurso Flipper.*/
+.print .flipper .front img,
+.stage .flipper .front img {
+  height: 100%!important;
+}
+
+/*Ajuste no texto de conteúdo do Tooltip, estava sobrepondo botões fixos, como libras, topo e tela cheia e também o topo da página, também foi inserido um limite máximo de altura e scroll.*/
+.print .tooltip .tooltip-content, .stage .tooltip .tooltip-content {
+  z-index: 10!important;
+  max-height: 400px;
+  overflow: scroll!important;
+  overflow-y: scroll;
+}
+
+/*Removida uma div que algumas vezes ficava visivel entre o conecte-se e o primeiro capítulo.*/
+.cover-down {
+  display: none;
+}
+
+/*Ajuste padrão para imagens, altura auto para serem definidas pela largura.*/
+img {
+  height: auto!important;
+}
+
+/*Ajustes na barra de navegação do recurso Slider, o ideal seria uma reformulação da estrutura.*/
+@media (max-width: 500px) {
+  .print .slider nav ul, .stage .slider nav ul {
+    width: 50%!important;
+    left: 19%!important;
+  }
+
+  .print .slider .slide, .stage .slider .slide {
+    width: 92.6%!important;
+  }
+
+  .print .slider .slide.show,
+  .stage .slider .slide.show {
+    padding-top: 81px;
+  }
+}
+
+/*A posição z dos botões de navegação do recurso Slider estavam afetando o clique em algumas coisas, por isso foi reduzido.*/
+.next, .prev {
+  z-index: 1;
+}
+
+/*Conteúdo do recurso Slider foi centralizado menos os textos.*/
+.print .slider .slide.show,
+.stage .slider .slide.show {
+  align-items: center !important;
+}
+
+/*Fonte estava ficando em italico.*/
+p.pequeno {
+  font-style: normal!important;
+}
+
+/*Ajuste no tamanho e posição do cabeçalho.*/
+.print .cover-header,
+.stage .cover-header {
+  height: 40px !important;
+  z-index: 1000 !important;
+}
+
+/*Imagem da marca removida, os direitos só será usado no rodapé.*/
+.print .cover-header img,
+.stage .cover-header img {
+  display: none !important;
+}
+
+/*Ajuste na posição do menu no cabeçalho.*/
+.print .innerMenu,
+.stage .innerMenu {
+  left: -36px !important;
+  right: auto !important;
+  z-index: 3000!important;
+}
+
+/*Ajuste na altura e altura máxima em relação a tela dos itens do Menu, a depender da quantitade de capítulos, eles passavam a tela não podendo ser selecionados os capítulos no final, então o tamanho foi reduzido e inserido um scroll.*/
+.print .innerMenuItems, .stage .innerMenuItems {
+  max-height: 80vh!important;
+  height: auto!important;
+}
+
+/*Ajuste na posição dos itens do Menu.*/
+.print .innerMenuItems,
+.stage .innerMenuItems {
+  left: 8px !important;
+  right: auto !important;
+}
+
+/*Ajuste textual dos itens do Menu.*/
+.print .innerMenuItems ul li a,
+.stage .innerMenuItems ul li a {
+  text-align: left !important;
+  word-break: normal !important;
+}
+
+/*Ajuste de estrutura dos itens do Menu.*/
+@media (max-width: 500px) {
+  .print .innerMenuItems,
+  .stage .innerMenuItems {
+    max-width: 84vw !important;
+    right: 32px !important;
+  }
+
+  .print .innerMenuItems ul li a,
+  .stage .innerMenuItems ul li a {
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    border-top-left-radius: 8px !important;
+    border-bottom-left-radius: 8px !important;
+    font-size: 16px !important;
+    line-height: 1.25em !important;
+    text-align: left !important;
+    word-break: normal !important;
+  }
+}
+
+/*Ajuste de tamanho máximo das imagens para respeitar o espaço de tela junto a margem geral.*/
+.print .cover .cover-container .cover-content > img,
+.stage .cover .cover-container .cover-content > img {
+  width: 600px!important;
+  height: auto!important;
+  max-height: 600px!important;
+}
+
+/*Ajustes gerais de fonte feitos juntos a designer.*/
+@media (max-width: 500px) {
+  .print .cover .cover-container .cover-content .cover-main span > p,
+  .stage .cover .cover-container .cover-content .cover-main span > p {
+    font-size: 20px !important;
+    line-height: 140% !important;
+  }
+  .print .cover .cover-container .cover-content,
+  .stage .cover .cover-container .cover-content {
+    gap: 0 !important;
+  }
+}
+
+/*Ajustes no tamanho da tabela na verão mobile, ela está ultrapassando o limite de tela.*/
+@media (max-width: 500px) {
+  table {
+    width: 80%!important;
+  }
+}
+
+/*Ajustes na altura da imagem no recurso Infográfico.*/
+@media (max-width: 500px) {
+  .print .infografico .infografico-content img, .play .stage .container .row .col12 .infografico .infografico-content img {
+    height: auto!important;
+  }
+}
+
+/*Ajustes na posição do recurso de Acessibilidade.*/
+#accessibility .accessible {
+  right: 24px !important;
+}
+
+/*Ajustes gerais no recurso de Acessibilidade.*/
+@media (max-width: 500px) {
+  #accessibility .accessible {
+    background: #fdfdfd;
+    right: 0 !important;
+    bottom: auto !important;
+    left: initial !important;
+    border-radius: 0 0 0 15px !important;
+    gap: 8px !important;
+    align-items: center;
+  }
+  #accessibility .accessible li {
+    margin-left: 0px !important;
+    padding: 4px 0 !important;
+  }
+  #accessibility .accessible li a[data-action="color"] {
+    top: 1px !important;
+    left: -1px !important;
+    position: relative;
+  }
+  .vlibras {
+    display: none !important;
+  }
+}
+
+/*Ajustes de espaçamento do recurso Capítulo.*/
+.print .capitulo,
+.stage .capitulo {
+  padding: 0 !important;
+}
+
+/*Ajustes de espaçamento de texto do recurso Capítulo.*/
+@media (max-width: 500px) {
+  .print .capitulo .entrada-de-aula-info .nome-da-aula-topo .capitulo-titulo h2,
+  .stage
+    .capitulo
+    .entrada-de-aula-info
+    .nome-da-aula-topo
+    .capitulo-titulo
+    h2 {
+    margin: 0 10px !important;
+  }
+}
+
+/*Texto do titulo do recurso Sanfona(também feito no Accordion), para que sempre fique no lado esquerdo, no mobile estava sendo centralizado.*/
+.print .sanfona-wrapper sanfona .sanfona-container .sanfona-content topo .txt,
+.stage .sanfona-wrapper sanfona .sanfona-container .sanfona-content topo .txt {
+  text-align: left !important;
+}
+
+/*Ajuste de espaçamento no recurso Sanfona e Accordion.*/
+@media screen and (max-width: 500px) { 
+  .print
+    .sanfona-wrapper
+    sanfona
+    .sanfona-container
+    .sanfona-content
+    topo
+    .txt
+    titulo,
+  .stage
+    .sanfona-wrapper
+    sanfona
+    .sanfona-container
+    .sanfona-content
+    topo
+    .txt
+    titulo {
+    line-height: 125% !important;
+    margin-left: -12px !important;
+  }
+}
+
+/*Ajustes na posição e limite das imagens de transição.*/
+@media screen and (max-width: 576px) {
+  .print .box-transition>.img>img, .stage .box-transition>.img>img {
+    margin-bottom: 41px!important;
+  }
+  .print .box-transition>.img, .stage .box-transition>.img{
+    max-width: none!important;
+  }
+}
+
+/*Ajustes na posição de textos dentro do recurso flipper.*/
+.print .flipper .back, .stage .flipper .back {
+  align-items: flex-start!important;
+  justify-content: normal!important;
+}
+
+/*Ajuste no espaçamento de itens nas listagens, estão ficando muito "juntas".*/
+ol, ul {
+  line-height: 145% !important;
+}
+
+/*Ajustes no recurso Conclusão junto a designer.*/
+@media (max-width: 500px) {
+  .print
+    .conclusao
+    .container
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo.titulo-grande,
+  .stage
+    .conclusao
+    .container
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo.titulo-grande {
+    font-size: 48px !important;
+    line-height: 140% !important;
+  }
+  .print
+    .conclusao
+    .container
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo,
+  .stage
+    .conclusao
+    .container
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo {
+    margin: 0 !important;
+  }
+  .print
+    .referencias
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo.titulo-grande,
+  .stage
+    .referencias
+    .entrada-de-aula-info
+    .topo-box-titulo
+    .topico-tiulo.titulo-grande {
+    font-size: 48px !important;
+    line-height: 140% !important;
+  }
+}
+
+/*Ajuste de espaçamento no recurso Caixa.*/
+ @media (max-width: 500px) {
+  .print .caixa p,
+  .stage .caixa p {
+    padding: 0 !important;
+  }
+}
+
+/*Ajuste na posição do botão Back to Top.*/
+body .btn-back-to-top {
+  bottom: 29.5px!important;
+}
+
+/*Ajuste na posição do botão Fullscreen.*/
+body .btn-fullscreen {
+  bottom: 93.5px!important;
+}

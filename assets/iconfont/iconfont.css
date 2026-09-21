@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "IconModule";
+  src: url('font/IconModule.eot');
+  src: url('font/IconModule.eot?#iefix') format('eot'),
+    url('font/IconModule.woff2') format('woff2'),
+    url('font/IconModule.woff') format('woff'),
+    url('font/IconModule.ttf') format('truetype'),
+    url('font/IconModule.svg#IconModule') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.icon-module:before {
+  display: inline-block;
+  font-family: "IconModule";
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-module-lg {
+  font-size: 1.3333333333333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.icon-module-2x { font-size: 2em; }
+.icon-module-3x { font-size: 3em; }
+.icon-module-4x { font-size: 4em; }
+.icon-module-5x { font-size: 5em; }
+.icon-module-fw {
+  width: 1.2857142857142858em;
+  text-align: center;
+}
+
+.icon-module-audio:before { content: "\EA01" }
+.icon-module-check:before { content: "\EA02" }
+.icon-module-circle:before { content: "\EA03" }
+.icon-module-close:before { content: "\EA04" }
+.icon-module-down:before { content: "\EA05" }
+.icon-module-earth:before { content: "\EA06" }
+.icon-module-left:before { content: "\EA07" }
+.icon-module-menu:before { content: "\EA08" }
+.icon-module-more:before { content: "\EA09" }
+.icon-module-pear:before { content: "\EA0A" }
+.icon-module-right:before { content: "\EA0B" }
+.icon-module-video:before { content: "\EA0C" }
