@@ -16,6 +16,334 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
     width: 80%!important;
   }
 }
+
+.infographic-source-table {
+  display: none;
+}
+
+/* Infografico vertical - geometria conforme Figma:
+   trilho da linha no centro x = 25,5px; conteudo a partir de 76px;
+   play 61px sobre a linha, bola 50px centralizada no bloco de texto azul
+   e ligada a ele por uma seta. */
+.vertical-infographic {
+  --infographic-blue: #1A4B9F;
+  --infographic-rail: 76px;
+  --infographic-center: 25.5px;
+  --infographic-line: 4px;
+  --infographic-play: 61px;
+  --infographic-ball: 50px;
+  --infographic-tail: 26px;
+  --infographic-rewind: 60px;
+  --infographic-gap: 71px;
+
+  max-width: 1045px;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+.vertical-infographic__timeline {
+  position: relative;
+  padding: 0 0 0 var(--infographic-rail);
+}
+
+.vertical-infographic__item {
+  position: relative;
+  margin-bottom: var(--infographic-gap);
+  scroll-margin-top: 110px;
+}
+
+.vertical-infographic__item:not(:first-child) {
+  display: none;
+}
+
+/* linha vertical do item: nasce atras do play e desce ate o proximo marcador */
+.vertical-infographic__item::before {
+  position: absolute;
+  top: 0;
+  bottom: calc(-1 * var(--infographic-gap));
+  left: calc(var(--infographic-center) - var(--infographic-line) / 2 - var(--infographic-rail));
+  width: var(--infographic-line);
+  background: var(--infographic-blue);
+  transform: scaleY(0);
+  transform-origin: top center;
+  content: "";
+}
+
+.vertical-infographic__item.is-open::before {
+  animation: infographic-line-down 420ms ease-out 200ms forwards;
+}
+
+.vertical-infographic__marker {
+  position: relative;
+  z-index: 1;
+  width: var(--infographic-play);
+  margin: 0 0 40px calc(var(--infographic-center) - var(--infographic-play) / 2 - var(--infographic-rail));
+  transition: margin-left 320ms ease;
+}
+
+/* estado inicial: apenas o primeiro icone, centralizado no recurso */
+.vertical-infographic__timeline.is-start .vertical-infographic__item:first-child .vertical-infographic__marker {
+  margin-left: calc(50% - var(--infographic-rail) / 2 - var(--infographic-play) / 2);
+}
+
+.vertical-infographic__play {
+  display: grid;
+  width: var(--infographic-play);
+  height: var(--infographic-play);
+  place-items: center;
+  padding: 0;
+  border: var(--infographic-line) solid var(--infographic-blue);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--infographic-blue);
+  cursor: pointer;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.vertical-infographic__play .icon-module-video {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 24px solid currentColor;
+  font-size: 0;
+}
+
+.vertical-infographic__play:hover,
+.vertical-infographic__play:focus-visible,
+.vertical-infographic__play[aria-expanded="true"] {
+  background: var(--infographic-blue);
+  color: #fff;
+}
+
+.vertical-infographic__play:focus-visible {
+  outline: 3px solid #f7c948;
+  outline-offset: 3px;
+}
+
+.vertical-infographic__panel {
+  position: relative;
+  /* espaco reservado para o header fixo quando o painel recebe o scroll */
+  scroll-margin-top: 110px;
+  animation: infographic-panel-open 240ms ease-out 200ms both;
+}
+
+/* titulo em caixa vazada, encaixado no canto superior esquerdo do bloco azul */
+.vertical-infographic__panel h3 {
+  position: relative;
+  z-index: 1;
+  display: table;
+  max-width: 100%;
+  margin: 0 0 -11px;
+  padding: 12px 24px 15px;
+  border: var(--infographic-line) solid var(--infographic-blue);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--infographic-blue);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 32px;
+  text-transform: uppercase;
+}
+
+.vertical-infographic__text {
+  position: relative;
+  padding: 32px 32px 32px 26px;
+  border-radius: 0 16px 16px 16px;
+  background: var(--infographic-blue);
+  color: #fff;
+  font-size: 20px;
+  line-height: 32px;
+}
+
+/* bola: mesma esfera do play, sem icone, centralizada ao lado do conteudo */
+.vertical-infographic__text::before {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--infographic-center) - var(--infographic-ball) / 2 - var(--infographic-rail));
+  width: var(--infographic-ball);
+  height: var(--infographic-ball);
+  margin-top: calc(-1 * var(--infographic-ball) / 2);
+  border-radius: 50%;
+  background: var(--infographic-blue);
+  animation: infographic-ball-in 280ms cubic-bezier(0.34, 1.56, 0.64, 1) 440ms both;
+  content: "";
+}
+
+/* seta ligando a bola ao bloco de texto */
+.vertical-infographic__text::after {
+  position: absolute;
+  top: 50%;
+  left: calc(-1 * var(--infographic-tail));
+  width: 0;
+  height: 0;
+  margin-top: -23px;
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
+  border-right: var(--infographic-tail) solid var(--infographic-blue);
+  animation: infographic-tail-in 220ms ease-out 500ms both;
+  content: "";
+}
+
+.vertical-infographic__text p {
+  margin: 0 0 16px;
+}
+
+.vertical-infographic__text p:last-child {
+  margin-bottom: 0;
+}
+
+.vertical-infographic__figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 12px 0 0;
+  padding: 32px;
+  gap: 8px;
+  border: var(--infographic-line) solid var(--infographic-blue);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.vertical-infographic__figure img {
+  display: block;
+  width: 100%;
+  max-width: 685px;
+  height: auto;
+}
+
+.vertical-infographic__figure figcaption {
+  color: #212121;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.vertical-infographic__rewind {
+  position: relative;
+  display: flex;
+  margin-left: calc(var(--infographic-center) - var(--infographic-rewind) / 2 - var(--infographic-rail));
+}
+
+.vertical-infographic__rewind[hidden] {
+  display: none !important;
+}
+
+.vertical-infographic__rewind-button {
+  display: grid;
+  width: var(--infographic-rewind);
+  height: var(--infographic-rewind);
+  place-items: center;
+  padding: 0;
+  border: var(--infographic-line) solid var(--infographic-blue);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--infographic-blue);
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.vertical-infographic__rewind-button:hover,
+.vertical-infographic__rewind-button:focus-visible {
+  background: var(--infographic-blue);
+  color: #fff;
+}
+
+.vertical-infographic__rewind-button:focus-visible {
+  outline: 3px solid #f7c948;
+  outline-offset: 3px;
+}
+
+@keyframes infographic-line-down {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@keyframes infographic-ball-in {
+  from { opacity: 0; transform: scale(0.2); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes infographic-tail-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes infographic-panel-open {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .vertical-infographic__panel h3 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .vertical-infographic__text {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 500px) {
+  .vertical-infographic {
+    --infographic-rail: 54px;
+    --infographic-center: 20px;
+    --infographic-line: 3px;
+    --infographic-play: 46px;
+    --infographic-ball: 34px;
+    --infographic-tail: 16px;
+    --infographic-rewind: 44px;
+    --infographic-gap: 48px;
+
+    padding: 0 12px;
+  }
+
+  .vertical-infographic__marker {
+    margin-bottom: 24px;
+  }
+
+  .vertical-infographic__play .icon-module-video {
+    margin-left: 4px;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    border-left-width: 16px;
+  }
+
+  .vertical-infographic__panel h3 {
+    margin-bottom: -8px;
+    padding: 8px 16px 10px;
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .vertical-infographic__text {
+    padding: 20px 18px;
+    font-size: 16px;
+    line-height: 26px;
+  }
+
+  .vertical-infographic__text::after {
+    margin-top: -15px;
+    border-top-width: 15px;
+    border-bottom-width: 15px;
+  }
+
+  .vertical-infographic__figure {
+    padding: 16px;
+  }
+
+  .vertical-infographic__rewind-button {
+    font-size: 1.6rem;
+  }
+}
+
 /*Inserção de scroll nas imagens do recurso Figura no mobile, algumas imagens possuem textos que não estavam ficando legíveis.*/
 .figura-content {
   display: inline-grid!important;
